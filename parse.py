@@ -1,12 +1,14 @@
 def parse(f):
-    cleanQs = []
+    cleanQs = {}
     try:
-        for question in f.open():
-            question = question.strip()
-            if not question.find("?"):
-                print("Error, {} is not a question! Skipped.".format(question))
+        for line in f.open():
+            question = line.strip().split("|")
+            if not question[0].find("?"):
+                print("Error, {} is not a question! Skipped.".format(question[0]))
+            elif len(question) > 1:
+                cleanQs[question[0].strip()] = question[1:]
             else:
-                cleanQs.append(question)
+                cleanQs[question[0].strip()] = []
         return cleanQs
     except(IOError):
         print("Could not find file {}".format(f))
