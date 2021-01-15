@@ -18,9 +18,9 @@ def setup():
 
     return adminName, questionObjects
 
-if __name__==__main__:
+if __name__=='__main__':
     adminName, questions = setup()
-    
+
     '''
     Personal Questions (name, age, etc)
     '''
