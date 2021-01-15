@@ -15,3 +15,15 @@ class Question(object):
     def __init__(self, l, filename):
         self.level = l.lower()
         self.questions = parse(filename)
+    
+    '''
+    This function returns a string displaying variables in Question object.
+    @returns
+        s: String containing level and questions
+    '''
+    def __str__(self):
+        s = '{} Questions:\n'.format(self.level)
+        for q in self.questions:
+            s += q
+            s += '\n'
+        return s

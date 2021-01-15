@@ -1,0 +1,6 @@
+What is your name?
+What is your partner's name?|Bonus points for middle name
+What is your age?
+What is your partner's age?|Subtract points if not within 1/2 age + 7 rule
+When did you two meet?|Bonus points for exact date
+When did you two start dating?|Bonus points for exact date
