@@ -1,4 +1,5 @@
 from Level import *
+from matplotlib import pyplot as plt
 '''
 Welcome to the Boyfriend Interrogator! 
 '''
@@ -48,10 +49,21 @@ if __name__=='__main__':
     '''
     Results & Customization
     '''
-    graphs = input("Calculating results...do you want to see graphs? (y/n)").strip().lower()
+    graphs = input("Calculating results...do you want to see graphs? (y/n) ").strip().lower()
     print("RESULTS".center(50, "-"))
-    totalScore = 0
+    totalScore = []
     for level in questions:
-        totalScore += level.statistics()
-    print("Your total score: {}/10".format(totalScore/4))
+        totalScore.append(level.statistics())
+    print("Your total score: {}/10".format(sum(totalScore)/4))
+    
+    if graphs=='y':
+        names = ['personal', 'easy', 'medium', 'hard']
+        
+        plt.bar(names, totalScore)
+        plt.subplot(132)
+        plt.scatter(names, totalScore)
+        plt.subplot(133)
+        plt.plot(names, totalScore)
+        plt.title("Average Scores Across Sections")
+        plt.show()
     
