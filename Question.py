@@ -1,29 +1,28 @@
 '''
-This class represents a list of questions parsed from a txt file. 
+This class represents a single question parsed from a txt file. 
 '''
-from parse import parse
 class Question(object):
     '''
     This function initializes an instance of the question class.
     @params 
         l: String, represents level of difficulty (ex. 'easy')
-        filename: String, name of file from which to extract questions (ex. 'easy.txt')
+        q: String, question
+        n: String, notes
     @modifies
-        self.level: String
-        self.questions: calls parse from parse.py, returns list of strings representing questions
+        self.label: String
+        self.question: String
+        self.notes: String
+        self.score: Int
     '''
-    def __init__(self, l, filename):
-        self.level = l.lower()
-        self.questions = parse(filename)
-    
+    def __init__(self, l, q, n):
+        self.label = l.lower()
+        self.question = q
+        self.notes = n
+        self.score = 0
     '''
     This function returns a string displaying variables in Question object.
     @returns
         s: String containing level and questions
     '''
     def __str__(self):
-        s = '{} Questions:\n'.format(self.level)
-        for q in self.questions:
-            s += q
-            s += '\n'
-        return s
+        return '{} Level:\n{}'.format(self.label, self.question)
